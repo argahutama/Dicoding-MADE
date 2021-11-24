@@ -6,7 +6,6 @@ object SortUtil {
     const val POPULARITY = "Popularity"
     const val VOTE = "Vote"
     const val NEWEST = "Newest"
-    const val RANDOM = "Random"
 
     fun getSortedQueryMovies(filter: String): SimpleSQLiteQuery {
         val simpleQuery = StringBuilder().append("SELECT * FROM movieEntities where isTvShow = 0 ")
@@ -14,7 +13,6 @@ object SortUtil {
             POPULARITY -> simpleQuery.append("ORDER BY popularity DESC")
             NEWEST -> simpleQuery.append("ORDER BY releaseDate DESC")
             VOTE -> simpleQuery.append("ORDER BY voteAverage DESC")
-            RANDOM -> simpleQuery.append("ORDER BY RANDOM()")
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
     }
@@ -25,7 +23,6 @@ object SortUtil {
             POPULARITY -> simpleQuery.append("ORDER BY popularity DESC")
             NEWEST -> simpleQuery.append("ORDER BY releaseDate DESC")
             VOTE -> simpleQuery.append("ORDER BY voteAverage DESC")
-            RANDOM -> simpleQuery.append("ORDER BY RANDOM()")
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
     }
@@ -37,7 +34,6 @@ object SortUtil {
             POPULARITY -> simpleQuery.append("ORDER BY popularity DESC")
             NEWEST -> simpleQuery.append("ORDER BY releaseDate DESC")
             VOTE -> simpleQuery.append("ORDER BY voteAverage DESC")
-            RANDOM -> simpleQuery.append("ORDER BY RANDOM()")
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
     }
@@ -49,7 +45,6 @@ object SortUtil {
             POPULARITY -> simpleQuery.append("ORDER BY popularity DESC")
             NEWEST -> simpleQuery.append("ORDER BY releaseDate DESC")
             VOTE -> simpleQuery.append("ORDER BY voteAverage DESC")
-            RANDOM -> simpleQuery.append("ORDER BY RANDOM()")
         }
         return SimpleSQLiteQuery(simpleQuery.toString())
     }
