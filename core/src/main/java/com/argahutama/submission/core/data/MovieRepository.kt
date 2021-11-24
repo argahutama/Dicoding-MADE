@@ -51,13 +51,13 @@ class MovieRepository(
             }
         }.asFlow()
 
-    override fun getSearchMovies(search: String): Flow<List<Movie>> =
-        localDataSource.getMovieSearch(search).map {
+    override fun searchMovies(search: String): Flow<List<Movie>> =
+        localDataSource.searchMovie(search).map {
             DataMapper.mapEntitiesToDomain(it)
         }
 
-    override fun getSearchTvShows(search: String): Flow<List<Movie>> =
-        localDataSource.getTvShowSearch(search).map {
+    override fun searchTvShows(search: String): Flow<List<Movie>> =
+        localDataSource.searchTvShow(search).map {
             DataMapper.mapEntitiesToDomain(it)
         }
 

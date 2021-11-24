@@ -19,13 +19,13 @@ class MainViewModel(private val movieUseCase: MovieUseCase) : BaseViewModel() {
         .debounce(300)
         .distinctUntilChanged()
         .filter { it.trim().isNotEmpty() }
-        .flatMapLatest { movieUseCase.getSearchMovies(it) }
+        .flatMapLatest { movieUseCase.searchMovies(it) }
         .asLiveData()
 
     val tvShowResult = queryChannel.asFlow()
         .debounce(300)
         .distinctUntilChanged()
         .filter { it.trim().isNotEmpty() }
-        .flatMapLatest { movieUseCase.getSearchTvShows(it) }
+        .flatMapLatest { movieUseCase.searchTvShows(it) }
         .asLiveData()
 }

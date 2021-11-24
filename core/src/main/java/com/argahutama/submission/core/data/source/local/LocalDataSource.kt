@@ -30,14 +30,13 @@ class LocalDataSource(private val mMovieDao: MovieDao) {
         return mMovieDao.getFavoriteTvShows(query)
     }
 
-    fun getMovieSearch(search: String): Flow<List<MovieEntity>> = mMovieDao.searchMovies(search)
+    fun searchMovie(search: String): Flow<List<MovieEntity>> = mMovieDao.searchMovies(search)
         .flowOn(Dispatchers.Default)
         .conflate()
 
-    fun getTvShowSearch(search: String): Flow<List<MovieEntity>> =
-        mMovieDao.searchTvShows(search)
-            .flowOn(Dispatchers.Default)
-            .conflate()
+    fun searchTvShow(search: String): Flow<List<MovieEntity>> = mMovieDao.searchTvShows(search)
+        .flowOn(Dispatchers.Default)
+        .conflate()
 
     suspend fun insertMovies(movies: List<MovieEntity>) = mMovieDao.insertMovie(movies)
 

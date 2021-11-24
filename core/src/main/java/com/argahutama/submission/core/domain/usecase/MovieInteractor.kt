@@ -15,11 +15,11 @@ class MovieInteractor(private val iMovieAppRepository: IMovieRepository) : Movie
     override fun getFavoriteMovies(sort: String): Flow<List<Movie>> =
         iMovieAppRepository.getFavoriteMovies(sort)
 
-    override fun getSearchMovies(search: String): Flow<List<Movie>> =
-        iMovieAppRepository.getSearchMovies(search)
+    override fun searchMovies(search: String): Flow<List<Movie>> =
+        iMovieAppRepository.searchMovies(search)
 
-    override fun getSearchTvShows(search: String): Flow<List<Movie>> =
-        iMovieAppRepository.getSearchTvShows(search)
+    override fun searchTvShows(search: String): Flow<List<Movie>> =
+        iMovieAppRepository.searchTvShows(search)
 
     override fun getFavoriteTvShows(sort: String): Flow<List<Movie>> =
         iMovieAppRepository.getFavoriteTvShows(sort)
