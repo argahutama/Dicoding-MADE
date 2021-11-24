@@ -11,9 +11,9 @@ import androidx.core.text.HtmlCompat
 import com.google.android.material.snackbar.Snackbar
 
 object CustomSnack {
-    private const val SUCCESS = 0
-    private const val WARNING = 1
-    private const val FAILED = 2
+    const val SUCCESS = 0
+    const val WARNING = 1
+    const val FAILED = 2
 
     fun show(context: Context, message: String, type: Int, root: View) = when (type) {
         SUCCESS -> success(context, root, message)
@@ -43,7 +43,7 @@ object CustomSnack {
 
         val textColor = when (type) {
             FAILED -> R.color.white
-            else -> R.color.black_900
+            else -> R.color.black_pitch
         }
 
         view.findViewById<ImageView>(R.id.ivSnackIcon)
