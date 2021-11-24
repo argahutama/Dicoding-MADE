@@ -1,6 +1,7 @@
 package com.argahutama.submission.core.di
 
 import androidx.room.Room
+import com.argahutama.submission.core.BuildConfig
 import com.argahutama.submission.core.data.MovieRepository
 import com.argahutama.submission.core.data.source.local.LocalDataSource
 import com.argahutama.submission.core.data.source.local.room.MovieDb
@@ -36,7 +37,7 @@ val networkModule = module {
     }
     single {
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://api.themoviedb.org/3/discover/")
+            .baseUrl(BuildConfig.BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .client(get())
             .build()

@@ -1,5 +1,6 @@
 package com.argahutama.submission.core.data.source.remote
 
+import com.argahutama.submission.core.BuildConfig
 import com.argahutama.submission.core.data.source.remote.network.ApiResponse
 import com.argahutama.submission.core.data.source.remote.network.ApiService
 import com.argahutama.submission.core.data.source.remote.response.MovieResponse
@@ -10,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource(private val apiService: ApiService) {
-    private val apiKey = "" //REPLACE YOUR API KEY HERE!!
+    private val apiKey = BuildConfig.API_KEY
 
     suspend fun getMovies(): Flow<ApiResponse<List<MovieResponse>>> = flow {
         try {
