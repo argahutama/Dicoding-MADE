@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.argahutama.submission.core.base.BaseFragment
 import com.argahutama.submission.core.data.Resource
 import com.argahutama.submission.core.domain.model.Movie
+import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.core.ui.MovieAdapter
 import com.argahutama.submission.custom_ui.CustomSnack
 import com.argahutama.submission.made.databinding.FragmentMovieBinding
@@ -47,9 +48,7 @@ class MovieFragment : BaseFragment() {
         rvMovies.adapter = adapter
     }
 
-    override fun initAction() = with(binding as FragmentMovieBinding) {
-        adapter.onItemClick = { selectedData ->
-            // TODO Navigate to Detail
-        }
+    override fun initAction() {
+        adapter.onItemClick = { navigateTo(NavigationDirection.Detail(it)) }
     }
 }

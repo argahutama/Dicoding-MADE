@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.argahutama.submission.custom_ui.CustomCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="4dp"
-    android:backgroundTint="@color/grey_blue">
+    android:layout_marginHorizontal="@dimen/small_margin"
+    android:layout_marginVertical="5dp"
+    android:padding="@dimen/small_margin">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="8dp"
+        android:layout_marginVertical="@dimen/small_margin"
         android:orientation="horizontal">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,42 +52,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:paddingHorizontal="8dp">
+            android:paddingHorizontal="@dimen/small_margin">
 
             <com.argahutama.submission.custom_ui.CustomTextView
                 android:id="@+id/ctvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:ellipsize="end"
                 android:maxLines="3"
-                android:textColor="@color/white"
-                app:size="b18"
+                app:size="b16"
                 tools:text="Judul Film" />
 
             <com.argahutama.submission.custom_ui.CustomTextView
                 android:id="@+id/ctvDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:ellipsize="end"
-                android:maxLines="4"
-                android:textColor="@color/white"
-                app:size="n16"
+                android:maxLines="5"
+                app:size="n14"
                 tools:text="Description" />
 
             <com.argahutama.submission.custom_ui.CustomTextView
                 android:id="@+id/ctvRating"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="@dimen/small_margin"
                 android:gravity="center_vertical"
-                android:textColor="@color/white"
                 app:drawableStartCompat="@drawable/ic_round_star_24"
-                app:size="n16"
+                app:size="n14"
                 tools:text="Rating" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</com.google.android.material.card.MaterialCardView>
+</com.argahutama.submission.custom_ui.CustomCardView>

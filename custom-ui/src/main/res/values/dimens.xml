@@ -15,7 +15,7 @@
     <dimen name="custom_card_view_elevation_float">8dp</dimen>
 
     <dimen name="custom_text_field_border_size">1dp</dimen>
-    <dimen name="custom_text_field_border_radius">0dp</dimen>
+    <dimen name="custom_text_field_border_radius">16dp</dimen>
     <dimen name="custom_text_field_padding">4dp</dimen>
     <dimen name="custom_text_field_prefix_suffix_padding">8dp</dimen>
     <dimen name="custom_text_field_content_margin">16dp</dimen>
