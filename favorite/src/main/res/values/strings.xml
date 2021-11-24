@@ -1,3 +1,8 @@
-<resources>
-    <string name="app_name">favorite</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">MADE</string>
+
+    <string name="movies">Movies</string>
+    <string name="tv_shows">Tv Shows</string>
+    <string name="favorite">Favorites</string>>
 </resources>

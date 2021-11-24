@@ -6,7 +6,17 @@
         <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.35733695652173914" />
         <entry key="app/src/main/res/layout/fragment_tv_show.xml" value="0.35733695652173914" />
         <entry key="core/src/main/res/layout/item_movie.xml" value="0.21458333333333332" />
+        <entry key="custom-ui/src/main/res/drawable/bg_custom_snack_success.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/bg_gears_card_view_default.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/bg_gears_snack_failed.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/bg_gears_snack_success.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/bg_gears_snack_warning.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/ic_round_check_24.xml" value="0.27037037037037037" />
+        <entry key="custom-ui/src/main/res/drawable/ic_round_warning_24.xml" value="0.27037037037037037" />
         <entry key="custom-ui/src/main/res/layout/layout_custom_snack.xml" value="0.35280797101449274" />
+        <entry key="favorite/src/main/res/layout/activity_favorite.xml" value="0.34782608695652173" />
+        <entry key="favorite/src/main/res/layout/fragment_favorite_movie.xml" value="0.34782608695652173" />
+        <entry key="favorite/src/main/res/layout/fragment_favorite_tv_show.xml" value="0.34782608695652173" />
       </map>
     </option>
   </component>
