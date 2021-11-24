@@ -19,8 +19,8 @@ val useCaseModule = module {
 @ExperimentalCoroutinesApi
 @FlowPreview
 val viewModelModule = module {
-    viewModel { MovieViewModel() }
-    viewModel { TvShowViewModel() }
-    viewModel { DetailViewModel() }
-    viewModel { MainViewModel() }
+    viewModel { MovieViewModel(get()) }
+    viewModel { TvShowViewModel(get()) }
+    viewModel { DetailViewModel(get()) }
+    viewModel { MainViewModel(get()) }
 }
