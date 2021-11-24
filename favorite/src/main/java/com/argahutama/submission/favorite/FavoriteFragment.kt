@@ -18,7 +18,7 @@ class FavoriteFragment: BaseFragment() {
 
         loadKoinModules(favoriteModule)
 
-        (binding as FragmentFavoriteBinding).run {
+        with(binding as FragmentFavoriteBinding) {
             viewPager.adapter = SectionPagerAdapter(requireContext(), childFragmentManager)
             tab.setupWithViewPager(viewPager)
         }

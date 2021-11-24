@@ -15,6 +15,7 @@
         <entry key="custom-ui/src/main/res/drawable/ic_round_warning_24.xml" value="0.27037037037037037" />
         <entry key="custom-ui/src/main/res/layout/layout_custom_snack.xml" value="0.35280797101449274" />
         <entry key="favorite/src/main/res/layout/activity_favorite.xml" value="0.34782608695652173" />
+        <entry key="favorite/src/main/res/layout/fragment_favorite.xml" value="0.348731884057971" />
         <entry key="favorite/src/main/res/layout/fragment_favorite_movie.xml" value="0.34782608695652173" />
         <entry key="favorite/src/main/res/layout/fragment_favorite_tv_show.xml" value="0.34782608695652173" />
       </map>
