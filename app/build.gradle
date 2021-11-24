@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
 }
+apply from: '../android_common.gradle'
 
 android {
     compileSdk 31
