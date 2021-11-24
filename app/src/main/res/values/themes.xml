@@ -15,4 +15,18 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="MenuTextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="fontFamily">@font/effra</item>
+        <item name="android:fontFamily">@font/effra</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MenuTextAppearance.Inactive">
+        <item name="android:textColor">@color/black_500</item>
+    </style>
+
+    <style name="MenuTextAppearance.Active">
+        <item name="android:textColor">@color/dark_cyan</item>
+    </style>
 </resources>

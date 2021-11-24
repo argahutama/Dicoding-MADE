@@ -12,7 +12,6 @@
         android:layout_marginHorizontal="30dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/bg_custom_snack_success"
-        android:elevation="8dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingHorizontal="20dp"
@@ -31,8 +30,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:textColor="@color/black_800"
-            app:size="b16"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/black_pitch"
+            app:size="n14"
             tools:text="Email berhasil diverifikasi" />
 
     </LinearLayout>
