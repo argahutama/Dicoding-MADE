@@ -10,7 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MADE">
         <activity
-            android:name=".SplashActivity"
+            android:name=".main.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".detail.DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

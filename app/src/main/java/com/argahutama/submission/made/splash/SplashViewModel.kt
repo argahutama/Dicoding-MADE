@@ -1,4 +1,4 @@
-package com.argahutama.submission.made
+package com.argahutama.submission.made.splash
 
 import com.argahutama.submission.core.base.BaseViewModel
 

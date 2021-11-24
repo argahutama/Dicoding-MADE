@@ -16,13 +16,10 @@ abstract class BaseFragment : Fragment() {
         }
 
     protected val binding get() = _binding!!
+
+    abstract fun createBinding(): ViewBinding
     abstract fun initView()
     abstract fun initAction()
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,7 +30,10 @@ abstract class BaseFragment : Fragment() {
         return binding.root
     }
 
-    abstract fun createBinding(): ViewBinding
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
     open fun setup() {
         initView()

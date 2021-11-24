@@ -1,4 +1,4 @@
-package com.argahutama.submission.made
+package com.argahutama.submission.made.splash
 
 import android.annotation.SuppressLint
 import com.argahutama.submission.core.base.BaseActivity
