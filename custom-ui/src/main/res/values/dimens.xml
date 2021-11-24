@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="normal_12_line_height">14sp</dimen>
+    <dimen name="normal_14_line_height">18sp</dimen>
+    <dimen name="normal_16_line_height">20sp</dimen>
+    <dimen name="bold_14_line_height">18sp</dimen>
+    <dimen name="bold_16_line_height">20sp</dimen>
+    <dimen name="bold_18_line_height">22sp</dimen>
+    <dimen name="bold_20_line_height">24sp</dimen>
+    <dimen name="bold_24_line_height">32sp</dimen>
+    <dimen name="bold_30_line_height">36sp</dimen>
+
+    <dimen name="custom_card_view_elevation_none">0dp</dimen>
+    <dimen name="custom_card_view_elevation_normal">4dp</dimen>
+    <dimen name="custom_card_view_elevation_float">8dp</dimen>
+</resources>

@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation project(":custom-ui")
     implementation project(":core")
     implementation project(":app")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"

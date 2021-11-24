@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/layout/fragment_movie.xml" value="0.35733695652173914" />
         <entry key="app/src/main/res/layout/fragment_tv_show.xml" value="0.35733695652173914" />
         <entry key="core/src/main/res/layout/item_movie.xml" value="0.21458333333333332" />
+        <entry key="custom-ui/src/main/res/layout/layout_custom_snack.xml" value="0.35280797101449274" />
       </map>
     </option>
   </component>

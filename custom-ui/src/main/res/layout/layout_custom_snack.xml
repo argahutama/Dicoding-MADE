@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_custom_snack_success"
+        android:elevation="8dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="15dp"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:id="@+id/ivSnackIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_round_check_24"
+            tools:ignore="ContentDescription" />
+
+        <com.argahutama.submission.custom_ui.CustomTextView
+            android:id="@+id/ctvSnackMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:textColor="@color/black_800"
+            app:size="b16"
+            tools:text="Email berhasil diverifikasi" />
+
+    </LinearLayout>
+</FrameLayout>

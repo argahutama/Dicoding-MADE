@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextView">
+        <attr name="size" format="enum">
+            <enum name="b30" value="0" />
+            <enum name="b24" value="1" />
+            <enum name="b20" value="2" />
+            <enum name="b18" value="3" />
+            <enum name="b16" value="4" />
+            <enum name="b14" value="5" />
+            <enum name="n16" value="6" />
+            <enum name="n14" value="7" />
+            <enum name="n12" value="8" />
+        </attr>
+        <attr name="android:textColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CustomCardView">
+        <attr name="ccv_cornerRadius" format="enum">
+            <enum name="flatRadius" value="0" />
+            <enum name="minimalRadius" value="1" />
+            <enum name="defaultRadius" value="2" />
+            <enum name="maximalRadius" value="3" />
+        </attr>
+        <attr name="ccv_elevation" format="enum">
+            <enum name="noElevation" value="0" />
+            <enum name="normalElevation" value="1" />
+            <enum name="floatElevation" value="2" />
+        </attr>
+        <attr name="ccv_isBordered" format="boolean" />
+    </declare-styleable>
+</resources>
