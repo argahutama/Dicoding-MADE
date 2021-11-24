@@ -19,7 +19,7 @@ class GlideListener(
         target: Target<Drawable>?,
         isFirstResource: Boolean,
     ): Boolean {
-        shimmer?.visibility = View.INVISIBLE
+        shimmer?.visibility = View.GONE
         onFailedCallback?.let { it() }
         return false
     }
@@ -32,7 +32,7 @@ class GlideListener(
         isFirstResource: Boolean,
     ): Boolean {
         imageView?.visibility = View.VISIBLE
-        shimmer?.visibility = View.INVISIBLE
+        shimmer?.visibility = View.GONE
         onReadyCallback?.let { it() }
         return false
     }

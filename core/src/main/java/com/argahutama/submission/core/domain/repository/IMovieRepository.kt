@@ -5,13 +5,13 @@ import com.argahutama.submission.core.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface IMovieRepository {
-    fun getAllMovies(sort: String): Flow<Resource<List<Movie>>>
+    fun getAllMovies(): Flow<Resource<List<Movie>>>
 
-    fun getAllTvShows(sort: String): Flow<Resource<List<Movie>>>
+    fun getAllTvShows(): Flow<Resource<List<Movie>>>
 
-    fun getFavoriteMovies(sort: String): Flow<List<Movie>>
+    fun getFavoriteMovies(): Flow<List<Movie>>
 
-    fun getFavoriteTvShows(sort: String): Flow<List<Movie>>
+    fun getFavoriteTvShows(): Flow<List<Movie>>
 
     fun searchMovies(search: String): Flow<List<Movie>>
 

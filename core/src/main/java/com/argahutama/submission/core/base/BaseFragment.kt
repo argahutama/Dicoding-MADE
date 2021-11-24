@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 import com.argahutama.submission.core.navigation.NavigationDirection
+import com.argahutama.submission.custom_ui.CustomSnack
 
 abstract class BaseFragment : Fragment() {
     open val viewModel: BaseViewModel? = null
@@ -44,7 +45,8 @@ abstract class BaseFragment : Fragment() {
     protected fun getBaseActivity(): BaseActivity? =
         if (activity is BaseActivity) requireActivity() as BaseActivity else null
 
-    fun showSnackbar(message: String, type: Int) = getBaseActivity()?.showSnackbar(message, type)
+    fun showSnackbar(message: String, type: Int = CustomSnack.SUCCESS) =
+        getBaseActivity()?.showSnackbar(message, type)
 
     private fun getBaseApp() = getBaseActivity()?.getBaseApp()
 

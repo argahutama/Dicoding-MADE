@@ -41,7 +41,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     fun getBaseApp() = application as? BaseApp
 
-    fun showSnackbar(message: String, type: Int) =
+    fun showSnackbar(message: String, type: Int = CustomSnack.SUCCESS) =
         CustomSnack.show(this, message, type, binding.root)
 
     fun navigateTo(direction: NavigationDirection, requestCode: Int? = null) =

@@ -17,9 +17,9 @@ class MovieRepository(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IMovieRepository {
-    override fun getAllMovies(sort: String): Flow<Resource<List<Movie>>> =
+    override fun getAllMovies(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<MovieResponse>>() {
-            override fun loadFromDB(): Flow<List<Movie>> = localDataSource.getAllMovies(sort).map {
+            override fun loadFromDB(): Flow<List<Movie>> = localDataSource.getAllMovies().map {
                 DataMapper.mapEntitiesToDomain(it)
             }
 
@@ -34,9 +34,9 @@ class MovieRepository(
             }
         }.asFlow()
 
-    override fun getAllTvShows(sort: String): Flow<Resource<List<Movie>>> =
+    override fun getAllTvShows(): Flow<Resource<List<Movie>>> =
         object : NetworkBoundResource<List<Movie>, List<TvShowResponse>>() {
-            override fun loadFromDB(): Flow<List<Movie>> = localDataSource.getAllTvShows(sort).map {
+            override fun loadFromDB(): Flow<List<Movie>> = localDataSource.getAllTvShows().map {
                 DataMapper.mapEntitiesToDomain(it)
             }
 
@@ -61,13 +61,13 @@ class MovieRepository(
             DataMapper.mapEntitiesToDomain(it)
         }
 
-    override fun getFavoriteMovies(sort: String): Flow<List<Movie>> =
-        localDataSource.getAllFavoriteMovies(sort).map {
+    override fun getFavoriteMovies(): Flow<List<Movie>> =
+        localDataSource.getAllFavoriteMovies().map {
             DataMapper.mapEntitiesToDomain(it)
         }
 
-    override fun getFavoriteTvShows(sort: String): Flow<List<Movie>> =
-        localDataSource.getAllFavoriteTvShows(sort).map {
+    override fun getFavoriteTvShows(): Flow<List<Movie>> =
+        localDataSource.getAllFavoriteTvShows().map {
             DataMapper.mapEntitiesToDomain(it)
         }
 

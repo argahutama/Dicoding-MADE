@@ -4,12 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.argahutama.submission.core.BuildConfig
 import com.argahutama.submission.core.databinding.ItemMovieBinding
 import com.argahutama.submission.core.domain.model.Movie
 import com.argahutama.submission.core.util.DifferenceUtil
+import com.argahutama.submission.core.util.GlideListener
+import com.bumptech.glide.Glide
 import java.util.*
 
-class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
+class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     private var listData = ArrayList<Movie>()
     var onItemClick: ((Movie) -> Unit)? = null
 
@@ -22,7 +25,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
         diffResult.dispatchUpdatesTo(this)
     }
 
-    fun getSwipedData(swipedPosition: Int): Movie = listData[swipedPosition]
+    fun getSwipedData(swipedPosition: Int) = listData[swipedPosition]
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val bd = ItemMovieBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -33,13 +36,20 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MovieViewHolder>() {
         holder.bind(listData[position])
     }
 
-    override fun getItemCount(): Int = listData.size
+    override fun getItemCount() = listData.size
 
     inner class MovieViewHolder(
         private val binding: ItemMovieBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) = with(binding) {
-            // TODO
+            ctvTitle.text = movie.title
+            ctvDescription.text = movie.overview
+            ctvRating.text = movie.voteAverage.toString()
+
+            Glide.with(itemView.context)
+                .load("${BuildConfig.IMAGE_URL}${movie.posterPath}")
+                .listener(GlideListener(sivMovie, shimmer))
+                .into(sivMovie)
         }
 
         init {

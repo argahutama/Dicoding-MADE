@@ -9,24 +9,23 @@ import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.flowOn
 
 class LocalDataSource(private val mMovieDao: MovieDao) {
-
-    fun getAllMovies(sort: String): Flow<List<MovieEntity>> {
-        val query = SortUtil.getSortedQueryMovies(sort)
+    fun getAllMovies(): Flow<List<MovieEntity>> {
+        val query = SortUtil.getSortedQueryMovies()
         return mMovieDao.getMovies(query)
     }
 
-    fun getAllTvShows(sort: String): Flow<List<MovieEntity>> {
-        val query = SortUtil.getSortedQueryTvShows(sort)
+    fun getAllTvShows(): Flow<List<MovieEntity>> {
+        val query = SortUtil.getSortedQueryTvShows()
         return mMovieDao.getTvShows(query)
     }
 
-    fun getAllFavoriteMovies(sort: String): Flow<List<MovieEntity>> {
-        val query = SortUtil.getSortedQueryFavoriteMovies(sort)
+    fun getAllFavoriteMovies(): Flow<List<MovieEntity>> {
+        val query = SortUtil.getSortedQueryFavoriteMovies()
         return mMovieDao.getFavoriteMovies(query)
     }
 
-    fun getAllFavoriteTvShows(sort: String): Flow<List<MovieEntity>> {
-        val query = SortUtil.getSortedQueryFavoriteTvShows(sort)
+    fun getAllFavoriteTvShows(): Flow<List<MovieEntity>> {
+        val query = SortUtil.getSortedQueryFavoriteTvShows()
         return mMovieDao.getFavoriteTvShows(query)
     }
 

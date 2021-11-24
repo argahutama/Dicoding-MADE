@@ -8,6 +8,5 @@ import com.argahutama.submission.core.domain.model.Movie
 import com.argahutama.submission.core.domain.usecase.MovieUseCase
 
 class TvShowViewModel(private val movieUseCase: MovieUseCase): BaseViewModel() {
-    fun getTvShows(sort: String): LiveData<Resource<List<Movie>>> =
-        movieUseCase.getAllTvShows(sort).asLiveData()
+    fun getTvShows(): LiveData<Resource<List<Movie>>> = movieUseCase.getAllTvShows().asLiveData()
 }
