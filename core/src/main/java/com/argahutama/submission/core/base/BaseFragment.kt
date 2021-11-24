@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import com.argahutama.submission.core.navigation.NavigationDirection
 
 abstract class BaseFragment : Fragment() {
     open val viewModel: BaseViewModel? = null
@@ -44,4 +45,12 @@ abstract class BaseFragment : Fragment() {
         if (activity is BaseActivity) requireActivity() as BaseActivity else null
 
     fun showSnackbar(message: String, type: Int) = getBaseActivity()?.showSnackbar(message, type)
+
+    private fun getBaseApp() = getBaseActivity()?.getBaseApp()
+
+    fun navigateTo(direction: NavigationDirection) =
+        getBaseApp()?.navigateTo(requireContext(), direction)
+
+    fun navigateTo(direction: NavigationDirection, requestCode: Int) =
+        getBaseApp()?.navigateTo(requireActivity(), direction, requestCode)
 }
