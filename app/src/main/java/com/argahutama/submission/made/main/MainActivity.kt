@@ -11,7 +11,7 @@ import com.argahutama.submission.made.tvshow.TvShowFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
-    var visibleMenuId: Int? = null
+    private var visibleMenuId: Int? = null
     override val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override val viewModel by viewModel<MainViewModel>()
 
@@ -21,7 +21,11 @@ class MainActivity : BaseActivity() {
     }
 
     override fun initView() = with(binding) {
-        bnvMainMenu.itemIconTintList = null
+        bnvMainMenu.run {
+            selectedItemId = R.id.main_menu_movies
+            selectMenu(R.id.main_menu_movies)
+            itemIconTintList = null
+        }
     }
 
     override fun initAction() = with(binding) {
