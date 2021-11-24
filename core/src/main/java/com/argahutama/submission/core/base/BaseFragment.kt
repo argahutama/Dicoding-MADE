@@ -40,6 +40,8 @@ abstract class BaseFragment : Fragment() {
         initAction()
     }
 
-    fun getBaseActivity(): BaseActivity? =
+    protected fun getBaseActivity(): BaseActivity? =
         if (activity is BaseActivity) requireActivity() as BaseActivity else null
+
+    fun showSnackbar(message: String, type: Int) = getBaseActivity()?.showSnackbar(message, type)
 }

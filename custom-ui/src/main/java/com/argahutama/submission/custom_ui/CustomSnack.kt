@@ -15,13 +15,19 @@ object CustomSnack {
     private const val WARNING = 1
     private const val FAILED = 2
 
-    fun success(context: Context, message: String, root: View) =
+    fun show(context: Context, message: String, type: Int, root: View) = when (type) {
+        SUCCESS -> success(context, root, message)
+        WARNING -> warning(context, root, message)
+        else -> failed(context, root, message)
+    }
+
+    private fun success(context: Context, root: View, message: String) =
         setupView(context, message, SUCCESS, root)
 
-    fun warning(context: Context, root: View, message: String) =
+    private fun warning(context: Context, root: View, message: String) =
         setupView(context, message, WARNING, root)
 
-    fun failed(context: Context, root: View, message: String) =
+    private fun failed(context: Context, root: View, message: String) =
         setupView(context, message, FAILED, root)
 
     private fun setupView(context: Context, message: String, type: Int, root: View) {

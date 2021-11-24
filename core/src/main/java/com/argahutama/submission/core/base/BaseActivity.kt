@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
+import com.argahutama.submission.custom_ui.CustomSnack
 
 abstract class BaseActivity : AppCompatActivity() {
     abstract val binding: ViewBinding
@@ -28,8 +29,6 @@ abstract class BaseActivity : AppCompatActivity() {
         initAction()
     }
 
-    fun toast(message: String, length: Int = Toast.LENGTH_SHORT) =
-        Toast.makeText(this, message, length).show()
-
-    fun showError(throwable: Throwable) = toast(throwable.message.orEmpty())
+    fun showSnackbar(message: String, type: Int) =
+        CustomSnack.show(this, message, type, binding.root)
 }
