@@ -5,6 +5,7 @@ import android.content.res.Resources
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
@@ -35,6 +36,12 @@ object CustomSnack {
         view.findViewById<TextView>(R.id.ctvSnackMessage).text =
             HtmlCompat.fromHtml(message, HtmlCompat.FROM_HTML_MODE_LEGACY)
 
+        val background = when (type) {
+            SUCCESS -> R.drawable.bg_custom_snack_success
+            WARNING -> R.drawable.bg_custom_snack_warning
+            else -> R.drawable.bg_custom_snack_failed
+        }
+
         val drawable = when (type) {
             SUCCESS -> R.drawable.ic_round_check_24
             WARNING -> R.drawable.ic_round_warning_24
@@ -46,6 +53,8 @@ object CustomSnack {
             else -> R.color.black_pitch
         }
 
+        view.findViewById<LinearLayout>(R.id.ll)
+            .background = ContextCompat.getDrawable(context, background)
         view.findViewById<ImageView>(R.id.ivSnackIcon)
             .setImageDrawable(ContextCompat.getDrawable(context, drawable))
         view.findViewById<CustomTextView>(R.id.ctvSnackMessage)
