@@ -17,7 +17,6 @@ android {
 
         buildConfigField("String", "API_KEY", '"YOUR API KEY HERE"')
         buildConfigField("String", "BASE_URL", '"https://api.themoviedb.org/3/discover/"')
-        buildConfigField("String", "IMAGE_URL", '"https://image.tmdb.org/t/p/w500/"')
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"

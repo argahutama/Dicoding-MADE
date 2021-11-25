@@ -4,6 +4,225 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".detail.DetailActivity">
+    android:background="@color/black_800">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.argahutama.submission.custom_ui.CustomCardView
+                android:id="@+id/ccvTopBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ccv_elevation="noElevation"
+                app:ccv_isBordered="false"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/ivPosterTopBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:background="@drawable/bg_poster"
+                        android:scaleType="centerCrop"
+                        tools:ignore="ContentDescription" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:src="@drawable/bg_foreground_poster"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            tools:ignore="ContentDescription" />
+
+                        <com.argahutama.submission.custom_ui.CustomTextView
+                            android:id="@+id/ctvTitleDetail"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toTopOf="@id/ctvDate"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/roundedImageView"
+                            app:size="b24" />
+
+                        <com.argahutama.submission.custom_ui.CustomTextView
+                            android:id="@+id/ctvDate"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:layout_marginBottom="16dp"
+                            android:textAlignment="textEnd"
+                            android:textColor="@color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/roundedImageView"
+                            app:size="b18" />
+
+                        <com.argahutama.submission.custom_ui.CustomTextView
+                            android:id="@+id/ctvRating"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/bg_rating"
+                            android:gravity="center"
+                            android:textColor="@color/white"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:size="b16"
+                            tools:text="6.6" />
+
+                        <ImageButton
+                            android:id="@+id/ivBackButton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/ic_round_arrow_back_ios_24"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="ContentDescription" />
+
+                        <View
+                            android:id="@+id/roundedImageView"
+                            android:layout_width="120dp"
+                            android:layout_height="180dp"
+                            android:layout_marginStart="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </FrameLayout>
+
+            </com.argahutama.submission.custom_ui.CustomCardView>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sivSubPoster"
+                android:layout_width="120dp"
+                android:layout_height="180dp"
+                android:layout_marginStart="16dp"
+                android:adjustViewBounds="true"
+                android:elevation="8dp"
+                app:layout_constraintBottom_toBottomOf="@id/ccvTopBar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ccvTopBar"
+                app:shapeAppearanceOverlay="@style/RoundedImage.Large" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/favoriteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/teal"
+                android:src="@drawable/ic_favorite"
+                android:tint="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ccvTopBar"
+                app:rippleColor="@color/black_900"
+                tools:ignore="ContentDescription" />
+
+            <com.argahutama.submission.custom_ui.CustomTextView
+                android:id="@+id/ctvOverviewTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/overview"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/sivSubPoster"
+                app:size="b24" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/dividerBody"
+                android:layout_width="100dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="centerCrop"
+                android:src="@color/teal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ctvOverviewTitle"
+                app:shapeAppearanceOverlay="@style/RoundedImage" />
+
+            <com.argahutama.submission.custom_ui.CustomTextView
+                android:id="@+id/ctvOverview"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerBody"
+                app:size="n16" />
+
+            <com.argahutama.submission.custom_ui.CustomTextView
+                android:id="@+id/ctvPopularityTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/popularity"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ctvOverview"
+                app:size="b24" />
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/dividerBodyGenre"
+                android:layout_width="100dp"
+                android:layout_height="3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:scaleType="centerCrop"
+                android:src="@color/teal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ctvPopularityTitle"
+                app:shapeAppearanceOverlay="@style/RoundedImage" />
+
+            <com.argahutama.submission.custom_ui.CustomTextView
+                android:id="@+id/ctvPopularity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dividerBodyGenre"
+                app:size="n16" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
