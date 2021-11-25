@@ -2,15 +2,21 @@ package com.argahutama.submission.made.main
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.lifecycleScope
 import com.argahutama.submission.core.base.BaseActivity
 import com.argahutama.submission.custom_ui.CustomSnack
 import com.argahutama.submission.made.R
 import com.argahutama.submission.made.databinding.ActivityMainBinding
 import com.argahutama.submission.made.movie.MovieFragment
 import com.argahutama.submission.made.tvshow.TvShowFragment
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class MainActivity : BaseActivity() {
+    private var backPressed = false
+    private var backPressJob: Job? = null
     private var visibleMenuId: Int? = null
     override val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override val viewModel by viewModel<MainViewModel>()
@@ -31,6 +37,20 @@ class MainActivity : BaseActivity() {
     override fun initAction() = with(binding) {
         bnvMainMenu.setOnItemSelectedListener(null)
         bnvMainMenu.setOnItemSelectedListener { selectMenu(it.itemId) }
+    }
+
+    override fun onBackPressed() {
+        if (!backPressed) {
+            backPressed = true
+            backPressJob?.cancel()
+            backPressJob = lifecycleScope.launch {
+                delay(2000)
+                backPressed = false
+            }
+            showSnackbar(getString(R.string.press_back_to_exit), CustomSnack.WARNING)
+        } else {
+            super.onBackPressed()
+        }
     }
 
     private fun changeNavigation(fragment: Fragment) {

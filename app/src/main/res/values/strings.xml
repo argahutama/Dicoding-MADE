@@ -10,4 +10,5 @@
     <string name="popularity_detail">Popularity : %s\nVote Count : %s\nVote Average : %s</string>
     <string name="set_favorite">Added to your favorites!</string>
     <string name="set_unfavorite">Removed from your favorites!</string>
+    <string name="press_back_to_exit">Press back button twice to exit</string>
 </resources>
