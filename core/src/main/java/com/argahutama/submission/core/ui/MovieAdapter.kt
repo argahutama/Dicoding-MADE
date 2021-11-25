@@ -2,6 +2,7 @@ package com.argahutama.submission.core.ui
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
@@ -46,15 +47,20 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) = with(binding) {
             ctvTitle.text = movie.title
-            ctvDescription.text = movie.overview
             ctvRating.text = movie.voteAverage.toString()
+            ctvDescription.run {
+                text = movie.overview
+                isVisible = movie.overview.isNotEmpty()
+            }
 
-            Glide.with(itemView.context)
+            if (movie.posterPath.isNotEmpty()) Glide.with(itemView.context)
                 .load(context.getString(R.string.base_image_url, movie.posterPath))
-                .listener(GlideListener(sivMovie, shimmer, onFailedCallback = {
-                    sivMovie.isVisible = false
-                }))
+                .listener(GlideListener(sivMovie, shimmer))
                 .into(sivMovie)
+            else {
+                sivMovie.visibility = View.GONE
+                shimmer.visibility = View.GONE
+            }
         }
 
         init {

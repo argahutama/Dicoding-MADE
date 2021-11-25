@@ -61,6 +61,7 @@ class FavoriteMovieFragment : BaseFragment() {
 
     override fun initView() = with(binding as FragmentMovieBinding) {
         rvMovies.adapter = adapter
+        ctfSearch.isVisible = false
     }
 
     override fun initAction() = with(binding as FragmentMovieBinding) {

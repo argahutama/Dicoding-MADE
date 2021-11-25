@@ -61,6 +61,7 @@ class FavoriteTvShowFragment : BaseFragment() {
 
     override fun initView() = with(binding as FragmentTvShowBinding) {
         rvTvShows.adapter = adapter
+        ctfSearch.isVisible = false
     }
 
     override fun initAction() = with(binding as FragmentTvShowBinding) {
