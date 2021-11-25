@@ -10,15 +10,15 @@ object DataMapper {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                it.id,
-                it.overview,
-                it.originalLanguage,
-                it.releaseDate,
-                it.popularity,
-                it.voteAverage,
-                it.title,
-                it.voteCount,
-                it.posterPath,
+                it.id ?: 0,
+                it.overview.orEmpty(),
+                it.originalLanguage.orEmpty(),
+                it.releaseDate.orEmpty(),
+                it.popularity ?: .0,
+                it.voteAverage ?: .0,
+                it.title.orEmpty(),
+                it.voteCount ?: 0,
+                it.posterPath.orEmpty(),
                 favorite = false,
                 isTvShows = false
             )
@@ -31,15 +31,15 @@ object DataMapper {
         val movieList = ArrayList<MovieEntity>()
         input.map {
             val movie = MovieEntity(
-                it.id,
-                it.overview,
-                it.originalLanguage,
-                it.firstAirDate,
-                it.popularity,
-                it.voteAverage,
-                it.name,
-                it.voteCount,
-                it.posterPath,
+                it.id ?: 0,
+                it.overview.orEmpty(),
+                it.originalLanguage.orEmpty(),
+                it.firstAirDate.orEmpty(),
+                it.popularity ?: .0,
+                it.voteAverage  ?: .0,
+                it.name.orEmpty(),
+                it.voteCount ?: 0,
+                it.posterPath.orEmpty(),
                 favorite = false,
                 isTvShows = true
             )

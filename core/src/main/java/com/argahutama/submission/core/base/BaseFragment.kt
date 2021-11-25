@@ -5,12 +5,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.custom_ui.CustomSnack
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 abstract class BaseFragment : Fragment() {
     open val viewModel: BaseViewModel? = null
+    private var job: Job? = null
     private var _binding: ViewBinding? = null
         get() {
             if (field == null) field = createBinding()
@@ -55,4 +60,12 @@ abstract class BaseFragment : Fragment() {
 
     fun navigateTo(direction: NavigationDirection, requestCode: Int) =
         getBaseApp()?.navigateTo(requireActivity(), direction, requestCode)
+
+    protected fun debounce(delayInMs: Long = 200L, action: () -> Unit) {
+        job?.cancel()
+        job = lifecycleScope.launch {
+            delay(delayInMs)
+            action()
+        }
+    }
 }

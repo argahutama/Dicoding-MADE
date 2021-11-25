@@ -6,13 +6,18 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.viewbinding.ViewBinding
 import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.custom_ui.CustomSnack
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Suppress("DEPRECATION")
 abstract class BaseActivity : AppCompatActivity() {
     open val fullscreen = false
+    private var job: Job? = null
     abstract val binding: ViewBinding
     abstract val viewModel: BaseViewModel
     abstract fun initView()
@@ -47,4 +52,12 @@ abstract class BaseActivity : AppCompatActivity() {
     fun navigateTo(direction: NavigationDirection, requestCode: Int? = null) =
         if (requestCode == null) getBaseApp()?.navigateTo(this, direction)
         else getBaseApp()?.navigateTo(this, direction, requestCode)
+
+    protected fun debounce(delayInMs: Long = 200L, action: () -> Unit) {
+        job?.cancel()
+        job = lifecycleScope.launch {
+            delay(delayInMs)
+            action()
+        }
+    }
 }
