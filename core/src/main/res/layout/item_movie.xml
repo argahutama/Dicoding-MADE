@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="@dimen/small_margin"
     android:layout_marginVertical="5dp"
+    android:backgroundTint="@color/black_900"
     android:padding="@dimen/small_margin">
 
     <LinearLayout
@@ -61,6 +62,7 @@
                 android:layout_marginStart="5dp"
                 android:ellipsize="end"
                 android:maxLines="3"
+                android:textColor="@color/white"
                 app:size="b16"
                 tools:text="Judul Film" />
 
@@ -72,6 +74,7 @@
                 android:layout_marginTop="@dimen/small_margin"
                 android:ellipsize="end"
                 android:maxLines="5"
+                android:textColor="@color/white"
                 app:size="n14"
                 tools:text="Description" />
 
@@ -81,6 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/small_margin"
                 android:gravity="center_vertical"
+                android:textColor="@color/white"
                 app:drawableStartCompat="@drawable/ic_round_star_24"
                 app:size="n14"
                 tools:text="Rating" />
