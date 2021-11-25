@@ -9,6 +9,7 @@ import com.argahutama.submission.core.domain.model.Movie
 import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.core.ui.MovieAdapter
 import com.argahutama.submission.favorite.FavoriteViewModel
+import com.argahutama.submission.made.R
 import com.argahutama.submission.made.databinding.FragmentMovieBinding
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
@@ -48,6 +49,7 @@ class FavoriteMovieFragment : BaseFragment() {
                 val movie = adapter.getSwipedData(swipedPosition)
                 val state = movie.favorite
                 viewModel.setFavorite(movie, !state)
+                showSnackbar(getString(R.string.set_unfavorite))
             }
         }
     })

@@ -9,10 +9,11 @@ import com.argahutama.submission.core.domain.model.Movie
 import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.core.ui.MovieAdapter
 import com.argahutama.submission.favorite.FavoriteViewModel
+import com.argahutama.submission.made.R
 import com.argahutama.submission.made.databinding.FragmentTvShowBinding
 import org.koin.android.viewmodel.ext.android.sharedViewModel
 
-class FavoriteTvShowFragment: BaseFragment() {
+class FavoriteTvShowFragment : BaseFragment() {
     private val adapter by lazy { MovieAdapter() }
     override val viewModel by sharedViewModel<FavoriteViewModel>()
     override fun createBinding() = FragmentTvShowBinding.inflate(layoutInflater)
@@ -48,6 +49,7 @@ class FavoriteTvShowFragment: BaseFragment() {
                 val movie = adapter.getSwipedData(swipedPosition)
                 val state = movie.favorite
                 viewModel.setFavorite(movie, !state)
+                showSnackbar(getString(R.string.set_unfavorite))
             }
         }
     })
