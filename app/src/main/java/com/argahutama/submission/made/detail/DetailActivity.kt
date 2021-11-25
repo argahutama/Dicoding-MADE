@@ -4,6 +4,7 @@ import androidx.core.content.ContextCompat
 import com.argahutama.submission.core.base.BaseActivity
 import com.argahutama.submission.core.domain.model.Movie
 import com.argahutama.submission.core.navigation.Extra
+import com.argahutama.submission.core.util.GlideListener
 import com.argahutama.submission.made.R
 import com.argahutama.submission.made.databinding.ActivityDetailBinding
 import com.bumptech.glide.Glide
@@ -33,11 +34,13 @@ class DetailActivity : BaseActivity() {
 
         Glide.with(this@DetailActivity)
             .load(getString(R.string.base_image_url, movie?.posterPath))
+            .listener(GlideListener(ivPosterTopBar, shimmerivPosterTopBar))
             .into(ivPosterTopBar)
         ivPosterTopBar.tag = movie?.posterPath.orEmpty()
 
         Glide.with(this@DetailActivity)
             .load(getString(R.string.base_image_url, movie?.posterPath))
+            .listener(GlideListener(sivSubPoster, shimmerSubPoster))
             .into(sivSubPoster)
         sivSubPoster.tag = movie?.posterPath
     }
