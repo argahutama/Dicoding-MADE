@@ -3,9 +3,9 @@ package com.argahutama.submission.core.ui
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.argahutama.submission.core.BuildConfig
 import com.argahutama.submission.core.R
 import com.argahutama.submission.core.databinding.ItemMovieBinding
 import com.argahutama.submission.core.domain.model.Movie
@@ -51,7 +51,9 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
 
             Glide.with(itemView.context)
                 .load(context.getString(R.string.base_image_url, movie.posterPath))
-                .listener(GlideListener(sivMovie, shimmer))
+                .listener(GlideListener(sivMovie, shimmer, onFailedCallback = {
+                    sivMovie.isVisible = false
+                }))
                 .into(sivMovie)
         }
 
