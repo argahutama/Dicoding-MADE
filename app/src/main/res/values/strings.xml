@@ -8,4 +8,6 @@
     <string name="overview">Overview</string>
     <string name="popularity">Popularity</string>
     <string name="popularity_detail">Popularity : %s\nVote Count : %s\nVote Average : %s</string>
+    <string name="set_favorite">Added to your favorites!</string>
+    <string name="set_unfavorite">Removed from your favorites!</string>
 </resources>

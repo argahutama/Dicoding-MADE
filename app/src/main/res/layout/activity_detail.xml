@@ -129,19 +129,17 @@
                 app:layout_constraintTop_toBottomOf="@id/ccvTopBar"
                 app:shapeAppearanceOverlay="@style/RoundedImage.Large" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/favoriteButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/sivFavorite"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
                 android:layout_marginTop="16dp"
+                app:shapeAppearanceOverlay="@style/CircleImage"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/teal"
-                android:src="@drawable/ic_favorite"
-                android:tint="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/ccvTopBar"
-                app:rippleColor="@color/black_900"
-                tools:ignore="ContentDescription" />
+                tools:ignore="ContentDescription"
+                tools:src="@drawable/ic_favorite" />
 
             <com.argahutama.submission.custom_ui.CustomTextView
                 android:id="@+id/ctvOverviewTitle"

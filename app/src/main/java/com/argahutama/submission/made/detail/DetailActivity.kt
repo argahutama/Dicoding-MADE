@@ -30,6 +30,7 @@ class DetailActivity : BaseActivity() {
             movie?.voteAverage.toString()
         )
         ctvRating.text = movie?.voteAverage.toString()
+
         Glide.with(this@DetailActivity)
             .load(getString(R.string.base_image_url, movie?.posterPath))
             .into(ivPosterTopBar)
@@ -42,13 +43,8 @@ class DetailActivity : BaseActivity() {
     }
 
     override fun initAction() = with(binding) {
-        var favoriteState = movie?.favorite ?: false
-        setFavorite(favoriteState)
-        favoriteButton.setOnClickListener {
-            favoriteState = !favoriteState
-            movie?.let { movie -> viewModel.setFavoriteMovie(movie, favoriteState) }
-            setFavorite(favoriteState)
-        }
+        setFavorite(movie?.favorite!!, true)
+        sivFavorite.setOnClickListener { setFavorite(!movie?.favorite!!) }
         ivBackButton.setOnClickListener { onBackPressed() }
     }
 
@@ -56,13 +52,18 @@ class DetailActivity : BaseActivity() {
         movie = intent.getParcelableExtra(Extra.MOVIE)
     }
 
-    private fun ActivityDetailBinding.setFavorite(state: Boolean) =
-        if (state)
-            favoriteButton.setImageDrawable(
-                ContextCompat.getDrawable(this@DetailActivity, R.drawable.ic_favorite_selected)
-            )
-        else favoriteButton.setImageDrawable(
+    private fun ActivityDetailBinding.setFavorite(newState: Boolean, isInitial: Boolean = false) {
+        if (!isInitial) {
+            movie?.favorite = newState
+            val message = if (newState) R.string.set_favorite else R.string.set_unfavorite
+            showSnackbar(getString(message))
+            if (movie != null) viewModel.setFavoriteMovie(movie!!, newState)
+        }
+
+        if (newState) sivFavorite.setImageDrawable(
+            ContextCompat.getDrawable(this@DetailActivity, R.drawable.ic_favorite_selected)
+        ) else sivFavorite.setImageDrawable(
             ContextCompat.getDrawable(this@DetailActivity, R.drawable.ic_favorite_unselected)
         )
-
+    }
 }
