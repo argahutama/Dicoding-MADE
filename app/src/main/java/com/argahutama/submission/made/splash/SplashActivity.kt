@@ -21,6 +21,7 @@ class SplashActivity : BaseActivity() {
         lifecycleScope.launch {
             delay(delayInMillis)
             navigateTo(NavigationDirection.Main)
+            finishAffinity()
         }
     }
 }
