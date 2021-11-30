@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.*
 class MainViewModel(private val movieUseCase: MovieUseCase) : BaseViewModel() {
     private val queryChannel = ConflatedBroadcastChannel<String>()
 
-    fun setSearchQuery(search: String) = queryChannel.offer(search)
+    fun setSearchQuery(search: String) = queryChannel.trySend(search).isSuccess
 
     val movieResult = queryChannel.asFlow()
         .debounce(300)

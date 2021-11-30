@@ -10,7 +10,7 @@ class CustomCardView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    var cornerRadius: Int = RADIUS_DEFAULT
+    private var cornerRadius: Int = RADIUS_DEFAULT
         set(value) {
             val availableRadius =
                 arrayOf(RADIUS_DEFAULT, RADIUS_FLAT, RADIUS_MAXIMAL, RADIUS_MINIMAL)
@@ -20,13 +20,13 @@ class CustomCardView @JvmOverloads constructor(
             }
         }
 
-    var isBordered: Boolean = false
+    private var isBordered: Boolean = false
         set(value) {
             field = value
             updateBackground()
         }
 
-    var cardElevation: Int = ELEVATION_NORMAL
+    private var cardElevation: Int = ELEVATION_NORMAL
         set(value) {
             val availableRadius = arrayOf(ELEVATION_NONE, ELEVATION_FLOAT, ELEVATION_NORMAL)
             if (!availableRadius.contains(value)) return

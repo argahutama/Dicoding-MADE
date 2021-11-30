@@ -22,7 +22,7 @@ abstract class BaseFragment : Fragment() {
             return field
         }
 
-    protected val binding get() = _binding!!
+    protected val binding get() = _binding
 
     abstract fun createBinding(): ViewBinding
     abstract fun initView()
@@ -32,9 +32,9 @@ abstract class BaseFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? {
         setup()
-        return binding.root
+        return binding?.root
     }
 
     override fun onDestroyView() {
@@ -47,7 +47,7 @@ abstract class BaseFragment : Fragment() {
         initAction()
     }
 
-    protected fun getBaseActivity(): BaseActivity? =
+    private fun getBaseActivity(): BaseActivity? =
         if (activity is BaseActivity) requireActivity() as BaseActivity else null
 
     fun showSnackbar(message: String, type: Int = CustomSnack.SUCCESS) =
@@ -57,9 +57,6 @@ abstract class BaseFragment : Fragment() {
 
     fun navigateTo(direction: NavigationDirection) =
         getBaseApp()?.navigateTo(requireContext(), direction)
-
-    fun navigateTo(direction: NavigationDirection, requestCode: Int) =
-        getBaseApp()?.navigateTo(requireActivity(), direction, requestCode)
 
     protected fun debounce(delayInMs: Long = 200L, action: () -> Unit) {
         job?.cancel()

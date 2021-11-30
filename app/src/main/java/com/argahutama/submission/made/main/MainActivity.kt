@@ -9,11 +9,11 @@ import com.argahutama.submission.made.R
 import com.argahutama.submission.made.databinding.ActivityMainBinding
 import com.argahutama.submission.made.movie.MovieFragment
 import com.argahutama.submission.made.tvshow.TvShowFragment
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
+@FlowPreview
+@ExperimentalCoroutinesApi
 class MainActivity : BaseActivity() {
     private var backPressed = false
     private var backPressJob: Job? = null

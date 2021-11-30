@@ -52,12 +52,4 @@ abstract class BaseActivity : AppCompatActivity() {
     fun navigateTo(direction: NavigationDirection, requestCode: Int? = null) =
         if (requestCode == null) getBaseApp()?.navigateTo(this, direction)
         else getBaseApp()?.navigateTo(this, direction, requestCode)
-
-    protected fun debounce(delayInMs: Long = 200L, action: () -> Unit) {
-        job?.cancel()
-        job = lifecycleScope.launch {
-            delay(delayInMs)
-            action()
-        }
-    }
 }

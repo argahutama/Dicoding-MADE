@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.text.InputFilter
-import android.text.TextWatcher
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
@@ -16,41 +15,32 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
-import java.text.NumberFormat
-import java.util.*
 
 class CustomTextField @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
 ) : ConstraintLayout(context, attrs, defStyleAttr) {
-    var isTextFieldEnableSaveState: Boolean = true
-        get() = etContent.isSaveEnabled
-        set(value) {
-            field = value
-            etContent.isSaveEnabled = field
-        }
-
-    var maxLength: Int = -1
+    private var maxLength: Int = -1
         set(value) {
             if (value == -1) return
             field = value
             etContent.filters = arrayOf(InputFilter.LengthFilter(value))
         }
 
-    var minLine: Int = 1
+    private var minLine: Int = 1
         set(value) {
             field = value
             etContent.minLines = field
         }
 
-    var maxLine: Int = 1
+    private var maxLine: Int = 1
         set(value) {
             field = value
             etContent.maxLines = field
         }
 
-    var prefixText: String? = null
+    private var prefixText: String? = null
         set(value) {
             if (value == null) return
             field = value
@@ -64,7 +54,7 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var prefixIcon: Drawable? = null
+    private var prefixIcon: Drawable? = null
         set(value) {
             if (value == null) return
             field = value
@@ -77,7 +67,7 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var suffixIcon: Drawable? = null
+    private var suffixIcon: Drawable? = null
         set(value) {
             if (value == null) return
             field = value
@@ -91,7 +81,7 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var suffixText: String? = null
+    private var suffixText: String? = null
         set(value) {
             if (value == null) return
             field = value
@@ -105,7 +95,7 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var shouldBeEnabled: Boolean = true
+    private var shouldBeEnabled: Boolean = true
         set(value) {
             field = value
             etContent.isEnabled = value
@@ -114,20 +104,20 @@ class CustomTextField @JvmOverloads constructor(
             else disable()
         }
 
-    var hint: String? = null
+    private var hint: String? = null
         set(value) {
             if (value == null) return
             field = value
             etContent.hint = value
         }
 
-    var inputType: Int = 0
+    private var inputType: Int = 0
         set(value) {
             field = value
             etContent.inputType = value
         }
 
-    var label: String? = null
+    private var label: String? = null
         set(value) {
             field = value
 
@@ -139,13 +129,13 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var optional: Boolean = false
+    private var optional: Boolean = false
         set(value) {
             field = value
             tvOptional.visibility = if (value) View.VISIBLE else View.GONE
         }
 
-    var helper: String? = null
+    private var helper: String? = null
         set(value) {
             field = value
 
@@ -157,19 +147,19 @@ class CustomTextField @JvmOverloads constructor(
             }
         }
 
-    var labelColor: Int = 0
+    private var labelColor: Int = 0
         set(value) {
             field = value
             tvLabel.setTextColor(value)
         }
 
-    var optionalColor: Int = 0
+    private var optionalColor: Int = 0
         set(value) {
             field = value
             tvOptional.setTextColor(value)
         }
 
-    var helperColor: Int = 0
+    private var helperColor: Int = 0
         set(value) {
             field = value
             tvHelper.setTextColor(value)
@@ -178,20 +168,20 @@ class CustomTextField @JvmOverloads constructor(
     val text: String
         get() = etContent.text.toString()
 
-    var error: Boolean = false
+    private var error: Boolean = false
         set(value) {
             field = value
             if (value) indicateError()
             else reset()
         }
 
-    var errorMessage: String? = null
+    private var errorMessage: String? = null
         set(value) {
             field = value
             error = value != null
         }
 
-    var enableClear: Boolean = false
+    private var enableClear: Boolean = false
         set(value) {
             field = value
             if (!value) {
@@ -365,42 +355,9 @@ class CustomTextField @JvmOverloads constructor(
         )
     }
 
-    fun addTextWatcher(textWatcher: TextWatcher) {
-        etContent.addTextChangedListener(textWatcher)
-    }
-
-    fun removeTextWatcher(textWatcher: TextWatcher) {
-        etContent.removeTextChangedListener(textWatcher)
-    }
-
-    fun setSelection(position: Int) {
-        try {
-            etContent.setSelection(position)
-        } catch (ex: IndexOutOfBoundsException) {
-            val cleanString = text.replace("[.]".toRegex(), "")
-
-            if (cleanString.isNotEmpty()) {
-                val parsed = cleanString.toDouble()
-                val formatted = NumberFormat.getInstance(Locale("id")).format(parsed)
-                setText(formatted)
-                setSelection(formatted.length)
-            }
-        }
-    }
-
     fun doOnTextChanged(callback: (text: CharSequence?, start: Int, count: Int, after: Int) -> Unit) {
         etContent.doOnTextChanged { text, start, count, after ->
             callback(text, start, count, after)
         }
-    }
-
-    fun setOnClickListener(listener: (View) -> Unit) {
-        tfRoot.setOnClickListener(listener)
-        etContent.setOnClickListener(listener)
-        etContent.isFocusable = false
-    }
-
-    fun setText(text: String?) {
-        etContent.setText(text)
     }
 }
