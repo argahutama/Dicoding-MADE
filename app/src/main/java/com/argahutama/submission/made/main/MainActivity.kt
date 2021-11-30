@@ -81,6 +81,8 @@ class MainActivity : BaseActivity() {
     }
 
     private fun selectMenu(menuId: Int): Boolean {
+        if (visibleMenuId == menuId) return false
+        
         visibleMenuId = menuId
         return when (menuId) {
             R.id.main_menu_movies -> {
