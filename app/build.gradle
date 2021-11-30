@@ -43,4 +43,5 @@ dependencies {
     implementation project(":custom-ui")
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
 }
