@@ -24,10 +24,10 @@ buildscript {
     ext.sqlite_version = "2.1.0"
 
     ext.retrofit_version = "2.9.0"
-    ext.logging_interceptor_version = '4.9.0'
+    ext.logging_interceptor_version = '4.9.1'
 
     ext.kotlin_coroutines_version = "1.4.2"
-    ext.lifecycle_version = "2.2.0"
+    ext.lifecycle_version = "2.4.0"
 
     ext.koin_version = "2.1.6"
     ext.play_core_version = "1.10.2"
