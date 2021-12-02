@@ -4,7 +4,6 @@
     <string name="main_menu_movies">Movies</string>
     <string name="main_menu_tv_shows">Tv Show</string>
     <string name="main_menu_favorites">Favorites</string>
-    <string name="share">Share</string>
     <string name="overview">Overview</string>
     <string name="popularity">Popularity</string>
     <string name="popularity_detail">Popularity : %s\nVote Count : %s\nVote Average : %s</string>
