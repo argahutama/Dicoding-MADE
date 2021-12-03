@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="teal">#5CA69F</color>
     <color name="turqoise">#8DD2C9</color>
 
     <color name="black_pitch">#000000</color>
     <color name="black_900">#081724</color>
-    <color name="black_800">#132432</color>
     <color name="black_500">#838B92</color>
     <color name="grey_500">#D9DBDD</color>
     <color name="grey_300">#E6E8E9</color>
