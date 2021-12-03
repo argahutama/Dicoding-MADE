@@ -9,6 +9,7 @@ import com.argahutama.submission.core.data.source.remote.RemoteDataSource
 import com.argahutama.submission.core.data.source.remote.network.ApiService
 import com.argahutama.submission.core.domain.repository.IMovieRepository
 import com.argahutama.submission.core.util.AppExecutors
+import com.ashokvarma.gander.GanderInterceptor
 import net.sqlcipher.database.SQLiteDatabase
 import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
@@ -39,6 +40,7 @@ val networkModule = module {
             .add(hostname, "sha256/oD/WAoRPvbez1Y2dfYfuo4yujAcYHXdv1Ivb2v2MOKk=")
             .build()
         OkHttpClient.Builder()
+            .addInterceptor(GanderInterceptor(androidContext()).showNotification(true))
             .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
             .connectTimeout(40, TimeUnit.SECONDS)
             .readTimeout(40, TimeUnit.SECONDS)

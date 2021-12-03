@@ -12,6 +12,8 @@ import com.argahutama.submission.core.di.repositoryModule
 import com.argahutama.submission.core.navigation.NavigationDirection
 import com.argahutama.submission.made.di.useCaseModule
 import com.argahutama.submission.made.di.viewModelModule
+import com.ashokvarma.gander.Gander
+import com.ashokvarma.gander.imdb.GanderIMDB
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview
 import org.koin.android.ext.koin.androidContext
@@ -38,6 +40,7 @@ class App : BaseApp() {
                 )
             )
         }
+        if (BuildConfig.DEBUG) Gander.setGanderStorage(GanderIMDB.getInstance())
     }
 
     override fun navigateTo(context: Context, direction: NavigationDirection) {
