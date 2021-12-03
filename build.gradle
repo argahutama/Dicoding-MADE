@@ -19,7 +19,7 @@ buildscript {
     ext.legacy_suppoert_version = "1.0.0"
     ext.shimmer_version = "0.5.0"
 
-    ext.room_version = "2.4.0-beta02"
+    ext.room_version = "2.4.0-rc01"
     ext.sqlcipher_version = "4.4.0"
     ext.sqlite_version = "2.1.0"
 

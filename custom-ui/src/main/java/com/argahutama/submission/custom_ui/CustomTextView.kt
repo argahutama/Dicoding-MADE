@@ -13,7 +13,7 @@ class CustomTextView @JvmOverloads constructor(
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,
 ) : AppCompatTextView(context, attrs, defStyleAttr) {
-    var size: Int = 0
+    private var size: Int = 0
         set(value) {
             field = value
             when (value) {
